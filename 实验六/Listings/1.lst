@@ -1,0 +1,89 @@
+A51 MACRO ASSEMBLER  1                                                                    12/21/2017 15:35:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\1.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE 1.asm SET(SMALL) DEBUG PRINT(.\Listings\1.lst) OBJECT(.\Objects\1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0000h
+
+0000 0133              2                     ajmp main
+
+0033                   3                     org 0033h
+
+                       4                     
+
+0033 759850            5     main:   mov scon,#50h
+
+0036 758920            6                     mov tmod,#20h
+
+0039 758BFD            7                     mov tl1,#-3
+
+003C 758DFD            8                     mov th1,#-3
+
+003F 7800              9                     mov r0,#0
+
+0041 7900             10                     mov r1,#0
+
+0043 D28E             11                     setb tr1
+
+                      12                     
+
+0045 3098FD           13     loop:   jnb ri,$
+
+0048 C298             14                     clr ri
+
+004A 09               15                     inc r1
+
+004B E599             16                     mov a,sbuf
+
+004D 38               17                     addc a,r0
+
+004E F8               18                     mov r0,a
+
+004F F599             19                     mov sbuf,a
+
+0051 3099FD           20                     jnb ti,$
+
+                      21                     ;clr ti
+
+0054 B910EE           22                     cjne r1,#16,loop
+
+0057 759901           23                     mov sbuf,#1
+
+005A 3099FD           24                     jnb ti,$
+
+005D C299             25                     clr ti
+
+005F 80FE             26                     sjmp $
+
+                      27                     
+
+                      28                     end
+
+A51 MACRO ASSEMBLER  1                                                                    12/21/2017 15:35:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0045H   A   
+MAIN . . . . . . .  C ADDR   0033H   A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

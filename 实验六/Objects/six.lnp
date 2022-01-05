@@ -1,0 +1,10 @@
+".\Objects\6-1.obj",
+".\Objects\6-2.obj",
+".\Objects\6-3.obj",
+".\Objects\6-4.obj",
+".\Objects\6-5.obj",
+".\Objects\6-6.obj",
+".\Objects\6-7-1.obj",
+".\Objects\6-7-2.obj" 
+TO ".\Objects\six" 
+PRINT(".\Listings\six.m51") RAMSIZE(256) 

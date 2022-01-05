@@ -1,0 +1,217 @@
+A51 MACRO ASSEMBLER  6_2                                                                  12/28/2017 13:13:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\6-2.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE 6-2.asm SET(SMALL) DEBUG PRINT(.\Listings\6-2.lst) OBJECT(.\Objects\6-2
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org     0000h
+
+0000 013D              2                     ajmp    main
+
+0003                   3                     org             0003h
+
+0003 01B9              4                     ajmp    zd0
+
+0033                   5                     org     0033h
+
+                       6                             
+
+0033 3F065B4F          7     tab:    db 3fh,06h,5bh,4fh,66h,6dh
+
+0037 666D                    
+0039 7D077F6F          8                     db 7dh,07h,7fh,6fh
+
+                       9                     
+
+003D 7482             10     main:   mov a,#82h
+
+003F 90C003           11                     mov dptr,#0c003h
+
+0042 F0               12                     movx @dptr,a
+
+                      13     
+
+0043 758801           14                     mov tcon,#01h
+
+0046 75A881           15                     mov ie,#81h
+
+0049 90B000           16                     mov dptr,#0b000h
+
+004C F0               17                     movx @dptr,a
+
+                      18                     
+
+004D 90C001           19     loop:   mov dptr,#0c001h
+
+0050 E0               20                     movx a,@dptr
+
+0051 90C000           21                     mov dptr,#0c000h
+
+0054 F0               22                     movx @dptr,a
+
+0055 90C002           23                     mov dptr,#0c002h
+
+0058 F0               24                     movx @dptr,a
+
+                      25     
+
+0059 75F00A           26                     mov b,#10
+
+005C E8               27                     mov a,r0
+
+005D B46402           28                     cjne a,#100,next
+
+0060 016C             29                     ajmp next2
+
+0062 4005             30     next:   jc xy
+
+0064 75900F           31                     mov p1,#0fh
+
+0067 016C             32                     ajmp next2
+
+0069 7590F0           33     xy:             mov p1,#0f0h
+
+                      34                     
+
+006C 84               35     next2:  div ab
+
+006D A9F0             36                     mov r1,b
+
+006F 75F00A           37                     mov b,#10
+
+0072 84               38                     div ab
+
+0073 AAF0             39                     mov r2,b
+
+0075 FB               40                     mov r3,a
+
+                      41                     
+
+0076 900033           42                     mov dptr,#tab
+
+0079 E9               43                     mov a,r1
+
+007A 93               44                     movc a,@a+dptr
+
+007B 908000           45                     mov dptr,#8000h
+
+007E F0               46                     movx @dptr,a
+
+007F 909000           47                     mov dptr,#9000h
+
+0082 7407             48                     mov a,#07h
+
+0084 F0               49                     movx @dptr,a
+
+0085 11B4             50                     acall delay
+
+0087 740F             51                     mov a,#0fh
+
+0089 F0               52                     movx @dptr,a
+
+                      53                     
+
+008A 900033           54                     mov dptr,#tab
+
+008D EA               55                     mov a,r2
+
+008E 93               56                     movc a,@a+dptr
+
+A51 MACRO ASSEMBLER  6_2                                                                  12/28/2017 13:13:03 PAGE     2
+
+008F 908000           57                     mov dptr,#8000h
+
+0092 F0               58                     movx @dptr,a
+
+0093 909000           59                     mov dptr,#9000h
+
+0096 740B             60                     mov a,#0bh
+
+0098 F0               61                     movx @dptr,a
+
+0099 11B4             62                     acall delay
+
+009B 740F             63                     mov a,#0fh
+
+009D F0               64                     movx @dptr,a
+
+                      65                     
+
+009E 900033           66                     mov dptr,#tab
+
+00A1 EB               67                     mov a,r3
+
+00A2 93               68                     movc a,@a+dptr
+
+00A3 908000           69                     mov dptr,#8000h
+
+00A6 F0               70                     movx @dptr,a
+
+00A7 909000           71                     mov dptr,#9000h
+
+00AA 740D             72                     mov a,#0dh
+
+00AC F0               73                     movx @dptr,a
+
+00AD 11B4             74                     acall delay
+
+00AF 740F             75                     mov a,#0fh
+
+00B1 F0               76                     movx @dptr,a
+
+                      77                     
+
+00B2 014D             78                     ajmp loop
+
+                      79                     
+
+00B4 7F00             80     delay:  mov r7,#0
+
+00B6 DFFE             81                     djnz r7,$
+
+00B8 22               82                     ret             
+
+                      83     
+
+00B9 90B000           84     zd0:    mov dptr,#0b000h
+
+00BC E0               85                     movx a,@dptr
+
+00BD F8               86                     mov r0,a
+
+00BE 32               87                     reti 
+
+                      88                     
+
+                      89                     end
+
+A51 MACRO ASSEMBLER  6_2                                                                  12/28/2017 13:13:03 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DELAY. . . . . . .  C ADDR   00B4H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+LOOP . . . . . . .  C ADDR   004DH   A   
+MAIN . . . . . . .  C ADDR   003DH   A   
+NEXT . . . . . . .  C ADDR   0062H   A   
+NEXT2. . . . . . .  C ADDR   006CH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TAB. . . . . . . .  C ADDR   0033H   A   
+TCON . . . . . . .  D ADDR   0088H   A   
+XY . . . . . . . .  C ADDR   0069H   A   
+ZD0. . . . . . . .  C ADDR   00B9H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

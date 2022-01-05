@@ -1,0 +1,87 @@
+A51 MACRO ASSEMBLER  PWM                                                                  11/17/2017 13:58:07 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\pwm.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE pwm.asm SET(SMALL) DEBUG PRINT(.\Listings\pwm.lst) OBJECT(.\Objects\pwm
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0000h
+
+0000 011D              2                     ajmp main
+
+001B                   3                     org 001bh
+
+001B 0132              4                     ajmp timer1
+
+                       5     
+
+001D 7800              6     main:   mov r0,#0
+
+001F 758920            7                     mov tmod,#20h
+
+0022 758D06            8                     mov th1,#-250
+
+0025 758B06            9                     mov tl1,#-250
+
+0028 D290             10                     setb p1.0
+
+002A D2AF             11                     setb ea
+
+002C D2AB             12                     setb et1
+
+002E D28E             13                     setb tr1
+
+0030 80FE             14                     sjmp $
+
+                      15                             
+
+0032 08               16     timer1: inc r0
+
+0033 B81402           17                     cjne r0,#20,next
+
+0036 C290             18                     clr p1.0
+
+0038 B87804           19     next:   cjne r0,#120,next1
+
+003B D290             20                     setb p1.0
+
+003D 7800             21                     mov r0,#0
+
+                      22     
+
+003F 32               23     next1:  reti
+
+                      24                     
+
+                      25                     end
+
+                                             
+
+A51 MACRO ASSEMBLER  PWM                                                                  11/17/2017 13:58:07 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET1. . . . . . . .  B ADDR   00A8H.3 A   
+MAIN . . . . . . .  C ADDR   001DH   A   
+NEXT . . . . . . .  C ADDR   0038H   A   
+NEXT1. . . . . . .  C ADDR   003FH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TIMER1 . . . . . .  C ADDR   0032H   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

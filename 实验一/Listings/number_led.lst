@@ -1,0 +1,195 @@
+A51 MACRO ASSEMBLER  NUMBER_LED                                                           11/12/2017 15:10:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\number_led.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE ÊµÑéÊýÂë¹Ü\number_led.asm SET(SMALL) DEBUG PRINT(.\Listings\number_led.
+                      lst) OBJECT(.\Objects\number_led.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org     0000h
+
+0000 8036              2                     sjmp    main
+
+0033                   3                     org     0033h   
+
+                       4     ;_______½«tab2ÖÐµÄÄÚÈÝ×°ÈëÒÔ30hÎªÊ×µØÖ·µÄÄÚ´æµ¥Ôª_________;
+
+0033 90009E            5     start:  mov dptr,#tab2
+
+0036 7830              6                     mov r0,#30h
+
+                       7                     
+
+0038 93                8     main:   movc a,@a+dptr
+
+0039 F6                9                     mov @r0,a
+
+003A E4               10                     clr a
+
+003B A3               11                     inc dptr
+
+003C 08               12                     inc r0
+
+003D B6F0F8           13                     cjne @r0,#0f0h,main     ;0-f×ªÒÆÍê±Ï
+
+                      14                     
+
+0040 18               15                     dec r0
+
+0041 7600             16                     mov @r0,#0
+
+0043 08               17                     inc r0
+
+0044 7600             18                     mov @r0,#0
+
+0046 08               19                     inc r0
+
+0047 7600             20                     mov @r0,#0
+
+                      21                     
+
+0049 E8               22                     mov a,r0                ;´æ·ÅÊ¾Ý¸öÊ
+
+004A 9406             23                     subb a,#6
+
+004C F5F0             24                     mov b,a         ;´æ·Å×î´óÆ«ÒÆ¶ÎÑ¡
+
+                      25                     
+
+                      26                             
+
+                      27     ;_______6Î»ÊÂë¹ÜÏÔÊ¾6Î»Ê¾Ý_________;
+
+004E 7C2F             28                     mov r4,#2fh
+
+0050 0C               29     l3:             inc r4
+
+0051 EC               30                     mov a,r4
+
+0052 B5F002           31                     cjne a,b,l4
+
+0055 7C30             32                     mov r4,#30h
+
+0057 7F0A             33     l4:             mov r7,#10              
+
+0059 7E14             34     l1:             mov r6,#20
+
+005B EC               35     l2:             mov a,r4
+
+005C F8               36                     mov r0,a
+
+005D DE04             37                     djnz r6,loop1
+
+005F DFF8             38                     djnz r7,l1      
+
+0061 80ED             39                     sjmp l3
+
+                      40                     
+
+                      41     ;_______6Î»ÊÂë¹ÜÏÔÊ¾6Î»Ê¾Ý_________;
+
+0063 79FE             42     loop1:  mov r1,#0feh    ;Î»Ñ¡
+
+0065 7A06             43                     mov r2,#6               ;ÏÔÊ¾Ê×ÖÎ»Ê
+
+0067 900088           44                     mov dptr,#tab1
+
+                      45                     
+
+006A E6               46     loop2:  mov a,@r0
+
+006B 93               47                     movc a,@a+dptr  ;È¡³ö¶ÎÑ¡Âë     
+
+006C F580             48                     mov p0,a                ;¶ÎÑ¡
+
+006E D2A6             49                     setb p2.6
+
+0070 C2A6             50                     clr p2.6
+
+0072 8980             51                     mov p0,r1               ;Î»Ñ¡
+
+0074 D2A7             52                     setb p2.7
+
+0076 C2A7             53                     clr p2.7
+
+0078 120083           54                     lcall delay
+
+007B 08               55                     inc r0
+
+007C E9               56                     mov a,r1
+
+007D 23               57                     rl a
+
+A51 MACRO ASSEMBLER  NUMBER_LED                                                           11/12/2017 15:10:53 PAGE     2
+
+007E F9               58                     mov r1,a
+
+007F DAE9             59                     djnz r2,loop2   ;ÏÔÊ¾ÍêÒ»×é6Î»Ê
+
+0081 80D8             60                     sjmp l2
+
+                      61                     
+
+0083 7B00             62     delay:  mov r3,#0
+
+0085 DBFE             63                     djnz r3,$
+
+0087 22               64                     ret
+
+                      65                     
+
+0088 3F065B4F         66     tab1:   db 3fh,06h,5bh,4fh,66h,6dh              ;0-fÒõ¼«ÊÂë¹Ü±àÂë
+
+008C 666D                    
+008E 7D077F6F         67                     db 7dh,07h,7fh,6fh,77h,7ch
+
+0092 777C                    
+0094 395E7971         68                     db 39h,5eh,79h,71h,0h,6dh,1ch,1eh,04h,54h                       ;0ffh½áÊøÎ»
+
+0098 006D1C1E                
+009C 0454                    
+                      69                             
+
+009E 02000105         70     tab2:   db 2h,0h,1h,5h,0h,7h,2h,0h
+
+00A2 00070200                
+00A6 05081011         71                     db 5h,8h,10h,11h,12h,13h,14h,15h
+
+00AA 12131415                
+00AE 10101010         72                     db 10h,10h,10h,10h,10h,10h,0f0h ;ÒªÏÔÊ¾µÄ0-fµÄ¶à¸öÊ¾Ý
+
+00B2 1010F0                  
+                      73                             
+
+                      74                     end
+
+A51 MACRO ASSEMBLER  NUMBER_LED                                                           11/12/2017 15:10:53 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DELAY. . . . . . .  C ADDR   0083H   A   
+L1 . . . . . . . .  C ADDR   0059H   A   
+L2 . . . . . . . .  C ADDR   005BH   A   
+L3 . . . . . . . .  C ADDR   0050H   A   
+L4 . . . . . . . .  C ADDR   0057H   A   
+LOOP1. . . . . . .  C ADDR   0063H   A   
+LOOP2. . . . . . .  C ADDR   006AH   A   
+MAIN . . . . . . .  C ADDR   0038H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0033H   A   
+TAB1 . . . . . . .  C ADDR   0088H   A   
+TAB2 . . . . . . .  C ADDR   009EH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

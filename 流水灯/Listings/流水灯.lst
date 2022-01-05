@@ -1,0 +1,90 @@
+A51 MACRO ASSEMBLER  ______                                                               10/26/2017 10:27:34 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\Á÷Ë®µÆ.obj
+ASSEMBLER INVOKED BY: D:\Keil\C51\BIN\A51.EXE Á÷Ë®µÆ.asm SET(SMALL) DEBUG PRINT(.\Listings\Á÷Ë®µÆ.lst) OBJECT(.\Objects\
+                      Á÷Ë®µÆ.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1             
+
+0000                   2             org 0000h
+
+0000 800D              3             sjmp main
+
+                       4             ;---ÏÔÊ¾ÑÓÊ±----------
+
+0002 7901              5     ds1ms: mov r1,#1
+
+0004 7AC8              6     ds1lo: mov r2,#200
+
+0006 7BC8              7     ds2lo: mov r3,#200
+
+0008 DBFE              8            djnz r3,$
+
+000A DAFA              9            djnz r2,ds2lo
+
+000C D9F6             10            djnz r1,ds1lo
+
+000E 22               11            ret ;ÑÓÊ±·µ»Ø
+
+                      12                
+
+                      13     ;start: mov r7,#8
+
+000F 7808             14     main:mov r0,#8           ;Ò»¸öÑ­»·ÐèÒªÒÆ¶¯8Î»
+
+0011 75907F           15          mov p1,#01111111b   ;³õÊ¼ÎªP0.7µÆµãÁÁ
+
+0014                  16     loop: ;clr p2.3
+
+0014 1102             17           acall ds1ms         ;ÑÓÊ±£¬ÒÔ±ãÈËÑÛ¿ÉÒÔ¹Û²ìµ½
+
+                      18           ;setb p2.3
+
+                      19           ;acall ds1ms  
+
+0016 E590             20           mov a,p1            ;¶ÁP0¿Úµ±Ç°ÏÔÊ¾µÄÊ¾ÝËÍµ½A
+
+0018 03               21           rr a                ;½«AÖÐµÄÊ¾ÝÑ­»·ÓÒÒÆ1Î»
+
+0019 F590             22           mov  p1,a            ;ÔÙ½«AÖÐÓÒÒÆ¹µÄÊ¾ÝËÍµ½P0
+
+001B D8F7             23           djnz r0,loop
+
+                      24           ;djnz r7,main           ;ÒÆ¶¯²»¹»8Î»£¬Ìøµ½LOOP´¦Ñ­»·,
+
+001D 80F0             25               sjmp main
+
+001F 011F             26               ajmp $
+
+                      27           end
+
+                             
+
+                             
+
+                             
+
+A51 MACRO ASSEMBLER  ______                                                               10/26/2017 10:27:34 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DS1LO. . . . . . .  C ADDR   0004H   A   
+DS1MS. . . . . . .  C ADDR   0002H   A   
+DS2LO. . . . . . .  C ADDR   0006H   A   
+LOOP . . . . . . .  C ADDR   0014H   A   
+MAIN . . . . . . .  C ADDR   000FH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

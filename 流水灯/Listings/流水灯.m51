@@ -1,0 +1,58 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        10/26/2017  10:27:34  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE .\Objects\流水灯.obj TO .\Objects\流水灯 PRINT (.\Listings\流水灯.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\流水灯.obj (______)
+
+
+LINK MAP OF MODULE:  .\Objects\流水灯 (______)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0021H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\流水灯 (______)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ______
+  C:0004H         SYMBOL        DS1LO
+  C:0002H         SYMBOL        DS1MS
+  C:0006H         SYMBOL        DS2LO
+  C:0014H         SYMBOL        LOOP
+  C:000FH         SYMBOL        MAIN
+  D:0090H         SYMBOL        P1
+  C:0000H         LINE#         3
+  C:0002H         LINE#         5
+  C:0004H         LINE#         6
+  C:0006H         LINE#         7
+  C:0008H         LINE#         8
+  C:000AH         LINE#         9
+  C:000CH         LINE#         10
+  C:000EH         LINE#         11
+  C:000FH         LINE#         14
+  C:0011H         LINE#         15
+  C:0014H         LINE#         17
+  C:0016H         LINE#         20
+  C:0018H         LINE#         21
+  C:0019H         LINE#         22
+  C:001BH         LINE#         23
+  C:001DH         LINE#         25
+  C:001FH         LINE#         26
+  -------         ENDMOD        ______
+
+Program Size: data=8.0 xdata=0 code=33
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,67 @@
+A51 MACRO ASSEMBLER  RUN_LED                                                              11/12/2017 14:17:07 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\run_led.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE run_led.asm SET(SMALL) DEBUG PRINT(.\Listings\run_led.lst) OBJECT(.\Obj
+                      ects\run_led.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     ORG     0000H
+
+0000 8031              2                     SJMP    MAIN
+
+0033                   3                     ORG             0033H
+
+                       4                             
+
+0033 74FE              5     MAIN:   MOV A, #0FEH
+
+0035 F590              6                     MOV P1,A
+
+0037 1140              7                     ACALL DELAY
+
+0039 23                8     LOOP:   RL A
+
+003A F590              9                     MOV P1,A
+
+003C 1140             10                     ACALL DELAY
+
+003E 0139             11                     AJMP LOOP
+
+                      12                     
+
+0040 7F00             13     DELAY:  MOV R7,#0
+
+0042 7E00             14     DEL:    MOV R6,#0
+
+0044 DEFE             15                     DJNZ R6,$
+
+0046 DFFA             16                     DJNZ R7,DEL
+
+0048 22               17                     RET
+
+                      18                     
+
+                      19                     END
+
+A51 MACRO ASSEMBLER  RUN_LED                                                              11/12/2017 14:17:07 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   0042H   A   
+DELAY. . . . . . .  C ADDR   0040H   A   
+LOOP . . . . . . .  C ADDR   0039H   A   
+MAIN . . . . . . .  C ADDR   0033H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

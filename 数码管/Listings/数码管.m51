@@ -1,0 +1,44 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2017  16:02:19  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\数码管.obj TO .\Objects\数码管 PRINT (.\Listings\数码管.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\数码管.obj (______)
+
+
+LINK MAP OF MODULE:  .\Objects\数码管 (______)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0259H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\数码管 (______)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ______
+  C:0227H         SYMBOL        DELAY
+  C:020FH         SYMBOL        LOOP1
+  C:0216H         SYMBOL        LOOP2
+  C:0205H         SYMBOL        MAIN
+  D:0080H         SYMBOL        P0
+  D:00A0H         SYMBOL        P2
+  C:0200H         SYMBOL        START
+  C:022CH         SYMBOL        TAB1
+  C:0242H         SYMBOL        TAB2
+  -------         ENDMOD        ______
+
+Program Size: data=8.0 xdata=0 code=601
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

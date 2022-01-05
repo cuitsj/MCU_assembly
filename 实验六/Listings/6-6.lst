@@ -1,0 +1,68 @@
+A51 MACRO ASSEMBLER  6_6                                                                  12/28/2017 13:13:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\6-6.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE 6-6.asm SET(SMALL) DEBUG PRINT(.\Listings\6-6.lst) OBJECT(.\Objects\6-6
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0000h
+
+0000 0133              2                     ajmp main
+
+001B                   3                     org 001bh
+
+001B 0143              4                     ajmp tzd1
+
+0033                   5                     org 0033h
+
+                       6     
+
+0033 758960            7     main:   mov tmod,#60h
+
+0036 758D38            8                     mov th1,#-200
+
+0039 758B38            9                     mov tl1,#-200
+
+003C 75A888           10                     mov ie,#88h
+
+003F D28E             11                     setb tr1
+
+                      12                     
+
+0041 80FE             13                     sjmp $
+
+                      14                             
+
+0043 B291             15     tzd1:   cpl p1.1
+
+0045 32               16                     reti
+
+                      17                     
+
+                      18                     end
+
+A51 MACRO ASSEMBLER  6_6                                                                  12/28/2017 13:13:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+IE . . . . . . . .  D ADDR   00A8H   A   
+MAIN . . . . . . .  C ADDR   0033H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TZD1 . . . . . . .  C ADDR   0043H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

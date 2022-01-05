@@ -1,0 +1,188 @@
+A51 MACRO ASSEMBLER  ______                                                               11/12/2017 16:02:19 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\ÊýÂë¹Ü.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE ÊýÂë¹Ü.asm SET(SMALL) DEBUG PRINT(.\Listings\ÊýÂë¹Ü.lst) OBJECT(.\Objec
+                      ts\ÊýÂë¹Ü.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0000h
+
+0000 020200            2                     ljmp start
+
+0200                   3                     org 0200h
+
+                       4                             
+
+                       5     ;_______½«tab2ÖÐµÄÄÚÈÝ×°ÈëÒÔ30hÎªÊ×µØÖ·µÄÄÚ´æµ¥Ôª_________;
+
+0200 900242            6     start:  mov dptr,#tab2
+
+0203 7830              7                     mov r0,#30h
+
+                       8                     
+
+0205 93                9     main:   movc a,@a+dptr
+
+0206 F6               10                     mov @r0,a
+
+0207 E4               11                     clr a
+
+0208 A3               12                     inc dptr
+
+0209 08               13                     inc r0
+
+020A B6F0F8           14                     cjne @r0,#0f0h,main     ;0-f×ªÒÆÍê±Ï
+
+                      15                     
+
+                      16                     ;dec r0
+
+                      17                     ;mov @r0,#0
+
+                      18                     ;inc r0
+
+                      19                     ;mov @r0,#0
+
+                      20                     ;inc r0
+
+                      21                     ;mov @r0,#0
+
+                      22                     
+
+                      23                     ;mov a,r0               ;´æ·ÅÊ¾Ý¸öÊ
+
+                      24                     ;subb a,#8
+
+                      25                     ;mov b,a                ;´æ·Å×î´óÆ«ÒÆ¶ÎÑ¡
+
+                      26                     
+
+                      27                             
+
+                      28     ;_______6Î»ÊÂë¹ÜÏÔÊ¾6Î»Ê¾Ý_________;
+
+                      29                     ;mov r4,#2fh
+
+                      30     ;l3:            inc r4
+
+                      31                     ;mov a,r4
+
+                      32                     ;cjne a,b,l4
+
+                      33                     ;mov r4,#30h
+
+                      34     ;l4:            mov r7,#10              
+
+                      35     ;l1:            mov r6,#20
+
+                      36     
+
+                      37     ;l2:            mov a,r4
+
+                      38                     ;mov r0,a
+
+                      39                     ;djnz r6,loop1
+
+                      40                     ;djnz r7,l1     
+
+                      41                     ;sjmp l3
+
+020D 7830             42                     mov r0,#30h
+
+                      43                     
+
+                      44     ;_______6Î»ÊÂë¹ÜÏÔÊ¾6Î»Ê¾Ý_________;
+
+020F 79FE             45     loop1:  mov r1,#0feh    ;Î»Ñ¡
+
+0211 7A08             46                     mov r2,#8               ;ÏÔÊ¾Ê×ÖÎ»Ê
+
+0213 90022C           47                     mov dptr,#tab1
+
+                      48                     
+
+0216 E6               49     loop2:  mov a,@r0
+
+0217 93               50                     movc a,@a+dptr  ;È¡³ö¶ÎÑ¡Âë     
+
+0218 F580             51                     mov p0,a                ;¶ÎÑ¡
+
+021A 89A0             52                     mov p2,r1               ;Î»Ñ¡
+
+021C 120227           53                     lcall delay
+
+021F 08               54                     inc r0
+
+0220 E9               55                     mov a,r1
+
+0221 23               56                     rl a
+
+0222 F9               57                     mov r1,a
+
+A51 MACRO ASSEMBLER  ______                                                               11/12/2017 16:02:19 PAGE     2
+
+0223 DAF1             58                     djnz r2,loop2   ;ÏÔÊ¾ÍêÒ»×é8Î»Ê
+
+0225 80E8             59                     sjmp loop1
+
+                      60                     
+
+0227 7B00             61     delay:  mov r3,#0
+
+0229 DBFE             62                     djnz r3,$
+
+022B 22               63                     ret
+
+                      64                     
+
+022C 3F065B4F         65     tab1:   db 3fh,06h,5bh,4fh,66h,6dh              ;0-fÒõ¼«ÊÂë¹Ü±àÂë
+
+0230 666D                    
+0232 7D077F6F         66                     db 7dh,07h,7fh,6fh,77h,7ch
+
+0236 777C                    
+0238 395E7971         67                     db 39h,5eh,79h,71h,0h,6dh,1ch,1eh,04h,54h                       ;0ffh½áÊøÎ»
+
+023C 006D1C1E                
+0240 0454                    
+                      68                             
+
+0242 02000105         69     tab2:   db 2h,0h,1h,5h,0h,7h,2h,0h
+
+0246 00070200                
+024A 05081011         70                     db 5h,8h,10h,11h,12h,13h,14h,15h
+
+024E 12131415                
+0252 10101010         71                     db 10h,10h,10h,10h,10h,10h,0f0h ;ÒªÏÔÊ¾µÄ0-fµÄ¶à¸öÊ¾Ý
+
+0256 1010F0                  
+                      72                             
+
+                      73                     end
+
+A51 MACRO ASSEMBLER  ______                                                               11/12/2017 16:02:19 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0227H   A   
+LOOP1. . . . . . .  C ADDR   020FH   A   
+LOOP2. . . . . . .  C ADDR   0216H   A   
+MAIN . . . . . . .  C ADDR   0205H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0200H   A   
+TAB1 . . . . . . .  C ADDR   022CH   A   
+TAB2 . . . . . . .  C ADDR   0242H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

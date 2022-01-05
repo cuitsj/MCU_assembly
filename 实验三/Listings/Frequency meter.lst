@@ -1,0 +1,187 @@
+A51 MACRO ASSEMBLER  FREQUENCY_METER                                                      11/26/2017 13:31:17 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\Frequency meter.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE Frequency meter.asm SET(SMALL) DEBUG PRINT(.\Listings\Frequency meter.l
+                      st) OBJECT(.\Objects\Frequency meter.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0000h
+
+0000 0127              2                     ajmp main
+
+001B                   3                     org 001bh
+
+001B 0191              4                     ajmp t1zd
+
+                       5                     
+
+001D 3F065B4F          6     tab:    db 3fh,06h,5bh,4fh,66h,6dh
+
+0021 666D                    
+0023 7D077F6F          7                     db 7dh,07h,7fh,6fh
+
+                       8                     
+
+0027 90001D            9     main:   mov dptr,#tab
+
+002A 7A00             10                     mov r2,#0
+
+002C 7830             11                     mov r0,#30h
+
+002E 758916           12                     mov tmod,#16h
+
+                      13                     
+
+0031 C2D5             14     start:  clr f0
+
+0033 758D3C           15                     mov th1,#high(-50000)
+
+0036 758BB0           16                     mov tl1,#low(-50000)
+
+0039 758C00           17                     mov th0,#0h
+
+003C 758A00           18                     mov tl0,#0h
+
+003F 758850           19                     mov tcon,#50h
+
+0042 75A888           20                     mov ie,#88h
+
+0045 BA141C           21     gx:             cjne r2,#20,show
+
+0048 758800           22                     mov tcon,#0h
+
+004B 75A800           23                     mov ie,#0h
+
+004E 7A00             24                     mov r2,#0
+
+0050 E58A             25                     mov a,tl0
+
+0052 75F00A           26                     mov b,#10
+
+0055 84               27                     div ab
+
+0056 85F030           28                     mov 30h,b
+
+0059 75F00A           29                     mov b,#10
+
+005C 84               30                     div ab
+
+005D 85F031           31                     mov 31h,b
+
+0060 F532             32                     mov 32h,a
+
+0062 D2D5             33                     setb f0
+
+                      34                     
+
+0064 E6               35     show:   mov a,@r0
+
+0065 93               36                     movc a,@a+dptr
+
+0066 F580             37                     mov p0,a
+
+0068 75907F           38                     mov p1,#7fh
+
+006B 1199             39                     acall delay
+
+006D 7590FF           40                     mov p1,#0ffh
+
+0070 08               41                     inc r0
+
+0071 E6               42                     mov a,@r0
+
+0072 93               43                     movc a,@a+dptr
+
+0073 F580             44                     mov p0,a
+
+0075 7590BF           45                     mov p1,#0bfh
+
+0078 1199             46                     acall delay
+
+007A 7590FF           47                     mov p1,#0ffh
+
+007D 08               48                     inc r0
+
+007E E6               49                     mov a,@r0
+
+007F 93               50                     movc a,@a+dptr
+
+0080 F580             51                     mov p0,a
+
+0082 7590DF           52                     mov p1,#0dfh
+
+0085 1199             53                     acall delay
+
+0087 7590FF           54                     mov p1,#0ffh
+
+008A 7830             55                     mov r0,#30h
+
+008C 20D5A2           56                     jb f0,start
+
+A51 MACRO ASSEMBLER  FREQUENCY_METER                                                      11/26/2017 13:31:17 PAGE     2
+
+008F 0145             57                     ajmp gx
+
+                      58                             
+
+0091 758D3C           59     t1zd:   mov th1,#high(-50000)
+
+0094 758BB0           60                     mov tl1,#low(-50000)
+
+0097 0A               61                     inc r2
+
+0098 32               62                     reti
+
+                      63                     
+
+0099 7F00             64     delay:  mov r7,#0
+
+009B DFFE             65                     djnz r7,$
+
+009D 22               66                     ret
+
+                      67                     
+
+                      68                     end
+
+                                             
+
+                                             
+
+                                             
+
+A51 MACRO ASSEMBLER  FREQUENCY_METER                                                      11/26/2017 13:31:17 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DELAY. . . . . . .  C ADDR   0099H   A   
+F0 . . . . . . . .  B ADDR   00D0H.5 A   
+GX . . . . . . . .  C ADDR   0045H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+MAIN . . . . . . .  C ADDR   0027H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+SHOW . . . . . . .  C ADDR   0064H   A   
+START. . . . . . .  C ADDR   0031H   A   
+T1ZD . . . . . . .  C ADDR   0091H   A   
+TAB. . . . . . . .  C ADDR   001DH   A   
+TCON . . . . . . .  D ADDR   0088H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

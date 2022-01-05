@@ -1,0 +1,181 @@
+A51 MACRO ASSEMBLER  TIMER                                                                11/26/2017 13:37:25 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\timer.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE timer.asm SET(SMALL) DEBUG PRINT(.\Listings\timer.lst) OBJECT(.\Objects
+                      \timer.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org     0000h
+
+0000 011F              2                     ajmp    main
+
+0003                   3                     org     0003h
+
+0003 016A              4                     ajmp    key1
+
+000B                   5                     org     000bh
+
+000B 0162              6                     ajmp    t0zd
+
+0013                   7                     org     0013h
+
+0013 0179              8                     ajmp    key2
+
+                       9                     
+
+0015 3F065B4F         10     tab:    db 3fh,06h,5bh,4fh,66h,6dh
+
+0019 666D                    
+001B 7D077F6F         11                     db 7dh,07h,7fh,6fh
+
+                      12                     
+
+001F 900015           13     main:   mov dptr,#tab
+
+0022 758901           14                     mov tmod,#01h
+
+0025 758C3C           15                     mov th0,#high(-50000)
+
+0028 758AB0           16                     mov tl0,#low(-50000)
+
+002B 75A887           17                     mov ie,#87h
+
+002E 758815           18                     mov tcon,#15h
+
+0031 7A00             19                     mov r2,#0
+
+0033 7B00             20                     mov r3,#0
+
+0035 BA1410           21     gx:             cjne r2,#20,show
+
+0038 7A00             22                     mov r2,#0
+
+003A 0B               23                     inc r3
+
+003B BB3C02           24                     cjne r3,#60,next
+
+003E 7B00             25                     mov r3,#0
+
+0040 EB               26     next:   mov a,r3
+
+0041 75F00A           27                     mov b,#10
+
+0044 84               28                     div ab
+
+0045 A8F0             29                     mov r0,b
+
+0047 F9               30                     mov r1,a
+
+0048 E8               31     show:   mov a,r0
+
+0049 93               32                     movc a,@a+dptr
+
+004A F580             33                     mov p0,a
+
+004C 75907F           34                     mov p1,#07fh
+
+004F 117B             35                     acall delay
+
+0051 7590FF           36                     mov p1,#0ffh
+
+0054 E9               37                     mov a,r1
+
+0055 93               38                     movc a,@a+dptr
+
+0056 F580             39                     mov p0,a
+
+0058 7590BF           40                     mov p1,#0bfh
+
+005B 117B             41                     acall delay
+
+005D 7590FF           42                     mov p1,#0ffh
+
+0060 0135             43                     ajmp gx
+
+                      44                     
+
+                      45                     
+
+0062 758C3C           46     t0zd:   mov th0,#high(-50000)
+
+0065 758AB0           47                     mov tl0,#low(-50000)
+
+0068 0A               48                     inc r2
+
+0069 32               49                     reti
+
+                      50                     
+
+006A EB               51     key1:   mov a,r3
+
+006B 240A             52                     add a,#10
+
+006D FB               53                     mov r3,a
+
+006E EB               54                     mov a,r3
+
+006F 75F00A           55                     mov b,#10
+
+0072 84               56                     div ab
+
+A51 MACRO ASSEMBLER  TIMER                                                                11/26/2017 13:37:25 PAGE     2
+
+0073 B40602           57                     cjne a,#6,next1
+
+0076 ABF0             58                     mov r3,b
+
+0078 32               59     next1:  reti
+
+                      60                     
+
+0079 0B               61     key2:   inc r3
+
+007A 32               62                     reti 
+
+                      63                     
+
+007B 7F00             64     delay:  mov r7,#0
+
+007D DFFE             65                     djnz r7,$
+
+007F 22               66                     ret
+
+                      67                     
+
+                      68                     end
+
+A51 MACRO ASSEMBLER  TIMER                                                                11/26/2017 13:37:25 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DELAY. . . . . . .  C ADDR   007BH   A   
+GX . . . . . . . .  C ADDR   0035H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+KEY1 . . . . . . .  C ADDR   006AH   A   
+KEY2 . . . . . . .  C ADDR   0079H   A   
+MAIN . . . . . . .  C ADDR   001FH   A   
+NEXT . . . . . . .  C ADDR   0040H   A   
+NEXT1. . . . . . .  C ADDR   0078H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+SHOW . . . . . . .  C ADDR   0048H   A   
+T0ZD . . . . . . .  C ADDR   0062H   A   
+TAB. . . . . . . .  C ADDR   0015H   A   
+TCON . . . . . . .  D ADDR   0088H   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

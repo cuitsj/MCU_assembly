@@ -1,0 +1,110 @@
+A51 MACRO ASSEMBLER  NUMBER                                                               11/12/2017 15:23:55 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\number.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE number.asm SET(SMALL) DEBUG PRINT(.\Listings\number.lst) OBJECT(.\Objec
+                      ts\number.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0000h
+
+0000 803B              2                     sjmp main
+
+0033                   3                     org 0033h
+
+                       4                             
+
+0033 3F065B4F          5     tab:    db 3fh,06h,5bh,4fh,66h,6dh
+
+0037 666D                    
+0039 7D077F6F          6                     db 7dh,07h,7fh,6fh
+
+                       7     
+
+003D 753002            8     main:   mov 30h,#2
+
+0040 753100            9                     mov 31h,#0
+
+0043 753201           10                     mov 32h,#1
+
+0046 753305           11                     mov 33h,#5
+
+0049 753400           12                     mov 34h,#0
+
+004C 753507           13                     mov 35h,#7
+
+004F 753602           14                     mov 36h,#2
+
+0052 753700           15                     mov 37h,#0
+
+0055 900033           16                     mov dptr,#tab
+
+                      17                     
+
+0058 7830             18     start:  mov r0,#30h
+
+005A 79FE             19                     mov r1,#0feh    ;位选
+
+005C 7F08             20                     mov r7,#8               ;显示首治皇
+
+                      21                     
+
+005E E6               22     loop:   mov a,@r0
+
+005F 93               23                     movc a,@a+dptr
+
+0060 75A0FF           24                     mov p2,#0ffh    ;消影
+
+                      25                     
+
+0063 F580             26                     mov p0,a                ;段选
+
+0065 89A0             27                     mov p2,r1               ;位选
+
+0067 08               28                     inc r0
+
+0068 E9               29                     mov a,r1
+
+0069 23               30                     rl a
+
+006A F9               31                     mov r1,a
+
+006B DFF1             32                     djnz r7,loop
+
+006D 80E9             33                     sjmp start
+
+                      34                     
+
+006F 7E0A             35     delay:  mov r6,#10
+
+0071 DEFE             36                     djnz r6,$
+
+0073 22               37                     ret
+
+                      38                             
+
+                      39                     end
+
+A51 MACRO ASSEMBLER  NUMBER                                                               11/12/2017 15:23:55 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   006FH   A   
+LOOP . . . . . . .  C ADDR   005EH   A   
+MAIN . . . . . . .  C ADDR   003DH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+START. . . . . . .  C ADDR   0058H   A   
+TAB. . . . . . . .  C ADDR   0033H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

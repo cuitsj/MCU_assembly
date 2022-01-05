@@ -1,0 +1,99 @@
+A51 MACRO ASSEMBLER  2_2                                                                  12/03/2017 11:56:39 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\2-2.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE 2-2.asm SET(SMALL) DEBUG PRINT(.\Listings\2-2.lst) OBJECT(.\Objects\2-2
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0000h
+
+0000 0133              2                     ajmp main
+
+0033                   3                     org 0033h
+
+                       4                     
+
+0033 759850            5     main:   mov scon,#50h
+
+0036 758920            6                     mov tmod,#20h
+
+0039 758BFD            7                     mov tl1,#-3
+
+003C 758DFD            8                     mov th1,#-3
+
+003F D28E              9                     setb tr1
+
+                      10                     
+
+0041 3098FD           11     loop:   jnb ri,$
+
+0044 C298             12                     clr ri
+
+0046 A899             13                     mov r0,sbuf
+
+0048 E8               14                     mov a,r0
+
+0049 C3               15                     clr c
+
+004A 9440             16                     subb a,#'A'-1
+
+004C 40F3             17                     jc loop
+
+004E E8               18                     mov a,r0
+
+004F C3               19                     clr c
+
+0050 945B             20                     subb a,#'Z'+1
+
+0052 4002             21                     jc next
+
+0054 0141             22                     ajmp loop
+
+0056 E8               23     next:   mov a,r0
+
+0057 C3               24                     clr c
+
+0058 9441             25                     subb a,#'A'
+
+005A 2461             26                     add a,#'a'
+
+005C F599             27                     mov sbuf,a
+
+005E 3099FD           28                     jnb ti,$
+
+0061 C299             29                     clr ti
+
+0063 0141             30                     ajmp loop
+
+                      31                     
+
+                      32                     end
+
+A51 MACRO ASSEMBLER  2_2                                                                  12/03/2017 11:56:39 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0041H   A   
+MAIN . . . . . . .  C ADDR   0033H   A   
+NEXT . . . . . . .  C ADDR   0056H   A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,103 @@
+A51 MACRO ASSEMBLER  3_2                                                                  12/03/2017 11:40:32 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\3-2.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE 3-2.asm SET(SMALL) DEBUG PRINT(.\Listings\3-2.lst) OBJECT(.\Objects\3-2
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0000h
+
+0000 0133              2                     ajmp main
+
+0033                   3                     org 0033h
+
+                       4                     
+
+0033 759850            5     main:   mov scon,#50h
+
+0036 758920            6                     mov tmod,#20h
+
+0039 758BFD            7                     mov tl1,#-3
+
+003C 758DFD            8                     mov th1,#-3
+
+003F D28E              9                     setb tr1
+
+                      10                     
+
+0041 3098FD           11     loop:   jnb ri,$
+
+0044 C298             12                     clr ri
+
+0046 E599             13                     mov a,sbuf
+
+0048 B40812           14                     cjne a,#08h,next
+
+004B 75994F           15                     mov sbuf,#'O'
+
+004E 3099FD           16                     jnb ti,$
+
+0051 C299             17                     clr ti
+
+0053 75994B           18                     mov sbuf,#'K'
+
+0056 3099FD           19                     jnb ti,$
+
+0059 C299             20                     clr ti
+
+005B 0141             21                     ajmp loop
+
+005D 759945           22     next:   mov sbuf,#'E'
+
+0060 3099FD           23                     jnb ti,$
+
+0063 C299             24                     clr ti
+
+0065 759952           25                     mov sbuf,#'R'
+
+0068 3099FD           26                     jnb ti,$
+
+006B C299             27                     clr ti
+
+006D 759952           28                     mov sbuf,#'R'
+
+0070 3099FD           29                     jnb ti,$
+
+0073 C299             30                     clr ti
+
+0075 0141             31                     ajmp loop
+
+                      32                     
+
+                      33                     
+
+                      34                     end
+
+A51 MACRO ASSEMBLER  3_2                                                                  12/03/2017 11:40:32 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0041H   A   
+MAIN . . . . . . .  C ADDR   0033H   A   
+NEXT . . . . . . .  C ADDR   005DH   A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

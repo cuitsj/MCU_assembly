@@ -1,0 +1,109 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        12/03/2017  10:15:37  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\timer.obj TO .\Objects\timer PRINT (.\Listings\timer.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\timer.obj (TIMER)
+
+
+LINK MAP OF MODULE:  .\Objects\timer (TIMER)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0080H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\timer (TIMER)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TIMER
+  D:00F0H         SYMBOL        B
+  C:007BH         SYMBOL        DELAY
+  C:0035H         SYMBOL        GX
+  D:00A8H         SYMBOL        IE
+  C:006AH         SYMBOL        KEY1
+  C:0079H         SYMBOL        KEY2
+  C:001FH         SYMBOL        MAIN
+  C:0040H         SYMBOL        NEXT
+  C:0078H         SYMBOL        NEXT1
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  C:0048H         SYMBOL        SHOW
+  C:0062H         SYMBOL        T0ZD
+  C:0015H         SYMBOL        TAB
+  D:0088H         SYMBOL        TCON
+  D:008CH         SYMBOL        TH0
+  D:008AH         SYMBOL        TL0
+  D:0089H         SYMBOL        TMOD
+  C:0000H         LINE#         2
+  C:0003H         LINE#         4
+  C:000BH         LINE#         6
+  C:0013H         LINE#         8
+  C:001FH         LINE#         13
+  C:0022H         LINE#         14
+  C:0025H         LINE#         15
+  C:0028H         LINE#         16
+  C:002BH         LINE#         17
+  C:002EH         LINE#         18
+  C:0031H         LINE#         19
+  C:0033H         LINE#         20
+BL51 BANKED LINKER/LOCATER V6.22                                                      12/03/2017  10:15:37  PAGE 2
+
+
+  C:0035H         LINE#         21
+  C:0038H         LINE#         22
+  C:003AH         LINE#         23
+  C:003BH         LINE#         24
+  C:003EH         LINE#         25
+  C:0040H         LINE#         26
+  C:0041H         LINE#         27
+  C:0044H         LINE#         28
+  C:0045H         LINE#         29
+  C:0047H         LINE#         30
+  C:0048H         LINE#         31
+  C:0049H         LINE#         32
+  C:004AH         LINE#         33
+  C:004CH         LINE#         34
+  C:004FH         LINE#         35
+  C:0051H         LINE#         36
+  C:0054H         LINE#         37
+  C:0055H         LINE#         38
+  C:0056H         LINE#         39
+  C:0058H         LINE#         40
+  C:005BH         LINE#         41
+  C:005DH         LINE#         42
+  C:0060H         LINE#         43
+  C:0062H         LINE#         46
+  C:0065H         LINE#         47
+  C:0068H         LINE#         48
+  C:0069H         LINE#         49
+  C:006AH         LINE#         51
+  C:006BH         LINE#         52
+  C:006DH         LINE#         53
+  C:006EH         LINE#         54
+  C:006FH         LINE#         55
+  C:0072H         LINE#         56
+  C:0073H         LINE#         57
+  C:0076H         LINE#         58
+  C:0078H         LINE#         59
+  C:0079H         LINE#         61
+  C:007AH         LINE#         62
+  C:007BH         LINE#         64
+  C:007DH         LINE#         65
+  C:007FH         LINE#         66
+  -------         ENDMOD        TIMER
+
+Program Size: data=8.0 xdata=0 code=128
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

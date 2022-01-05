@@ -1,0 +1,124 @@
+A51 MACRO ASSEMBLER  BUTTON                                                               11/17/2017 14:43:25 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\button.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE button.asm SET(SMALL) DEBUG PRINT(.\Listings\button.lst) OBJECT(.\Objec
+                      ts\button.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0000h
+
+0000 801D              2                     sjmp main
+
+0003                   3                     org 0003h
+
+0003 8047              4                     sjmp key1
+
+0013                   5                     org 0013h
+
+0013 803E              6                     sjmp key2
+
+                       7                     
+
+0015 3F065B4F          8     tab:    db 3fh,06h,5bh,4fh,66h,6dh
+
+0019 666D                    
+001B 7D077F6F          9                     db 7dh,07h,7fh,6fh
+
+                      10                             
+
+001F 758805           11     main:   mov tcon,#05h
+
+0022 75A885           12                     mov ie,#85h
+
+0025 7862             13                     mov r0,#98
+
+0027 900015           14                     mov dptr,#tab
+
+002A E8               15     dis:    mov a,r0
+
+002B 75F00A           16                     mov b,#10
+
+002E 84               17                     div ab
+
+002F 93               18                     movc a,@a+dptr
+
+0030 7590FF           19                     mov p1,#0ffh
+
+0033 F580             20                     mov p0,a
+
+0035 7590EF           21                     mov p1,#0efh    ;p1.4
+
+0038 1147             22                     acall delay
+
+003A E5F0             23                     mov a,b
+
+003C 93               24                     movc a,@a+dptr
+
+003D 7590FF           25                     mov p1,#0ffh
+
+0040 F580             26                     mov p0,a
+
+0042 7590DF           27                     mov p1,#0dfh    ;p1.5
+
+0045 80E3             28                     sjmp dis
+
+                      29                     
+
+                      30                     
+
+0047 7F0A             31     delay:  mov r7,#10
+
+0049 DFFE             32                     djnz r7,$
+
+004B 22               33                     ret
+
+004C 08               34     key1:   inc r0
+
+004D B86402           35                     cjne r0,#100,next1
+
+0050 7800             36                     mov r0,#0
+
+0052 32               37     next1:  reti
+
+0053 18               38     key2:   dec r0
+
+0054 B8FF02           39                     cjne r0,#-1,next2
+
+0057 7863             40                     mov r0,#99
+
+0059 32               41     next2:  reti
+
+                      42                     
+
+                      43                     end
+
+A51 MACRO ASSEMBLER  BUTTON                                                               11/17/2017 14:43:25 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DELAY. . . . . . .  C ADDR   0047H   A   
+DIS. . . . . . . .  C ADDR   002AH   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+KEY1 . . . . . . .  C ADDR   004CH   A   
+KEY2 . . . . . . .  C ADDR   0053H   A   
+MAIN . . . . . . .  C ADDR   001FH   A   
+NEXT1. . . . . . .  C ADDR   0052H   A   
+NEXT2. . . . . . .  C ADDR   0059H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TAB. . . . . . . .  C ADDR   0015H   A   
+TCON . . . . . . .  D ADDR   0088H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

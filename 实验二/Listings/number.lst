@@ -1,0 +1,150 @@
+A51 MACRO ASSEMBLER  NUMBER                                                               11/17/2017 15:43:28 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\number.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE number.asm SET(SMALL) DEBUG PRINT(.\Listings\number.lst) OBJECT(.\Objec
+                      ts\number.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0000h
+
+0000 013D              2                     ajmp main
+
+0033                   3                     org 0033h
+
+                       4                             
+
+0033 3F065B4F          5     tab:    db 3fh,06h,5bh,4fh,66h,6dh
+
+0037 666D                    
+0039 7D077F6F          6                     db 7dh,07h,7fh,6fh
+
+                       7                             
+
+003D 780F              8     main:   mov r0,#0fh     ;row->p2.0-p2.3
+
+003F 79F0              9                     mov r1,#0f0h ;col->p2.4-p2.7
+
+0041 900033           10                     mov dptr,#tab
+
+                      11                     
+
+0044 88A0             12     l1:             mov p2,r0
+
+0046 E5A0             13                     mov a,p2
+
+0048 B40F02           14                     cjne a,#0fh,xd
+
+004B 80F7             15                     sjmp l1
+
+004D 116B             16     xd:             acall delay
+
+004F E5A0             17                     mov a,p2
+
+0051 B40F02           18                     cjne a,#0fh,down
+
+0054 80EE             19                     sjmp l1
+
+                      20                     
+
+                      21                     
+
+0056 ABA0             22     down:   mov r3,p2 ;记录按下的行低4位
+
+0058 89A0             23                     mov p2,r1
+
+005A ACA0             24                     mov     r4,p2 ;j记录按下的列高4位
+
+005C EB               25                     mov a,r3
+
+005D 44F0             26                     orl a,#11110000b
+
+005F 5C               27                     anl a,r4
+
+0060 FD               28                     mov r5,a  ;得到按键码
+
+                      29                     
+
+0061 BD0002           30                     cjne r5,#00000000b,next1
+
+0064 0174             31                     ajmp key0
+
+0066 BDE7DB           32     next1:  cjne r5,#11100111b,l1
+
+0069 0181             33                     ajmp key1
+
+                      34                     
+
+                      35     
+
+006B 7F0A             36     delay:  mov r7,#10
+
+006D 7E32             37     del:    mov r6,#50
+
+006F DEFE             38                     djnz r6,$
+
+0071 DFFA             39                     djnz r7,del
+
+0073 22               40                     ret
+
+                      41                     
+
+0074 7400             42     key0:   mov a,#0h
+
+0076 93               43                     movc a,@a+dptr
+
+0077 7590FF           44                     mov p1,#0ffh            ;消影
+
+007A F580             45                     mov p0,a                ;段选
+
+007C 75900F           46                     mov p1,#0fh             ;位选
+
+007F 0144             47                     ajmp l1
+
+                      48                     
+
+0081 7401             49     key1:   mov a,#1h
+
+0083 93               50                     movc a,@a+dptr
+
+0084 7590FF           51                     mov p1,#0ffh            ;消影
+
+0087 F580             52                     mov p0,a                ;段选
+
+0089 75900F           53                     mov p1,#0fh             ;位选
+
+008C 0144             54                     ajmp l1
+
+                      55                     
+
+                      56                     end
+
+A51 MACRO ASSEMBLER  NUMBER                                                               11/17/2017 15:43:28 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   006DH   A   
+DELAY. . . . . . .  C ADDR   006BH   A   
+DOWN . . . . . . .  C ADDR   0056H   A   
+KEY0 . . . . . . .  C ADDR   0074H   A   
+KEY1 . . . . . . .  C ADDR   0081H   A   
+L1 . . . . . . . .  C ADDR   0044H   A   
+MAIN . . . . . . .  C ADDR   003DH   A   
+NEXT1. . . . . . .  C ADDR   0066H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+TAB. . . . . . . .  C ADDR   0033H   A   
+XD . . . . . . . .  C ADDR   004DH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

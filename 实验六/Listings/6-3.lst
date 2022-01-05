@@ -1,0 +1,94 @@
+A51 MACRO ASSEMBLER  6_3                                                                  12/28/2017 13:13:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\6-3.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE 6-3.asm SET(SMALL) DEBUG PRINT(.\Listings\6-3.lst) OBJECT(.\Objects\6-3
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org     0000h
+
+0000 0133              2                     ajmp    main
+
+0003                   3                     org             0003h
+
+0003 0157              4                     ajmp    zd0
+
+0033                   5                     org     0033h
+
+                       6                             
+
+0033 758801            7     main:   mov tcon,#01h
+
+0036 75A881            8                     mov ie,#81h
+
+0039 7800              9                     mov r0,#0
+
+003B 7400             10                     mov a,#0
+
+003D 90A000           11                     mov dptr,#0a000h
+
+0040 F0               12                     movx @dptr,a
+
+                      13                     
+
+0041 B8FFFD           14                     cjne r0,#0ffh,$
+
+0044 B8FF08           15     loop:   cjne r0,#0ffh,next
+
+0047 7433             16                     mov a,#51
+
+0049 90A000           17                     mov dptr,#0a000h
+
+004C F0               18                     movx @dptr,a
+
+004D 0144             19                     ajmp loop
+
+004F 7499             20     next:   mov a,#153
+
+0051 90A000           21                     mov dptr,#0a000h
+
+0054 F0               22                     movx @dptr,a
+
+0055 0144             23                     ajmp loop
+
+                      24                     
+
+0057 E8               25     zd0:    mov a,r0
+
+0058 F4               26                     cpl a
+
+0059 F8               27                     mov r0,a
+
+005A 32               28                     reti 
+
+                      29                     
+
+                      30                     end
+
+                                             
+
+                                             
+
+A51 MACRO ASSEMBLER  6_3                                                                  12/28/2017 13:13:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+IE . . . . . . . .  D ADDR   00A8H   A   
+LOOP . . . . . . .  C ADDR   0044H   A   
+MAIN . . . . . . .  C ADDR   0033H   A   
+NEXT . . . . . . .  C ADDR   004FH   A   
+TCON . . . . . . .  D ADDR   0088H   A   
+ZD0. . . . . . . .  C ADDR   0057H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

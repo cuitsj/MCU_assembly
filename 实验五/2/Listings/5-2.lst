@@ -1,0 +1,179 @@
+A51 MACRO ASSEMBLER  5_2                                                                  12/17/2017 12:10:16 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\5-2.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE 5-2.asm SET(SMALL) DEBUG PRINT(.\Listings\5-2.lst) OBJECT(.\Objects\5-2
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org     0000h
+
+0000 013D              2                     ajmp    main
+
+0003                   3                     org             0003h
+
+0003 0198              4                     ajmp    zd0
+
+0033                   5                     org     0033h
+
+                       6                             
+
+0033 3F065B4F          7     tab:    db 3fh,06h,5bh,4fh,66h,6dh
+
+0037 666D                    
+0039 7D077F6F          8                     db 7dh,07h,7fh,6fh
+
+                       9                     
+
+003D 758801           10     main:   mov tcon,#01h
+
+0040 75A881           11                     mov ie,#81h
+
+0043 90B000           12                     mov dptr,#0b000h
+
+0046 F0               13                     movx @dptr,a
+
+                      14                     
+
+0047 75F00A           15     loop:   mov b,#10
+
+004A E8               16                     mov a,r0
+
+004B 84               17                     div ab
+
+004C A9F0             18                     mov r1,b
+
+004E 75F00A           19                     mov b,#10
+
+0051 84               20                     div ab
+
+0052 AAF0             21                     mov r2,b
+
+0054 FB               22                     mov r3,a
+
+                      23                     
+
+0055 900033           24                     mov dptr,#tab
+
+0058 E9               25                     mov a,r1
+
+0059 93               26                     movc a,@a+dptr
+
+005A 908000           27                     mov dptr,#8000h
+
+005D F0               28                     movx @dptr,a
+
+005E 909000           29                     mov dptr,#9000h
+
+0061 7407             30                     mov a,#07h
+
+0063 F0               31                     movx @dptr,a
+
+0064 1193             32                     acall delay
+
+0066 740F             33                     mov a,#0fh
+
+0068 F0               34                     movx @dptr,a
+
+                      35                     
+
+0069 900033           36                     mov dptr,#tab
+
+006C EA               37                     mov a,r2
+
+006D 93               38                     movc a,@a+dptr
+
+006E 908000           39                     mov dptr,#8000h
+
+0071 F0               40                     movx @dptr,a
+
+0072 909000           41                     mov dptr,#9000h
+
+0075 740B             42                     mov a,#0bh
+
+0077 F0               43                     movx @dptr,a
+
+0078 1193             44                     acall delay
+
+007A 740F             45                     mov a,#0fh
+
+007C F0               46                     movx @dptr,a
+
+                      47                     
+
+007D 900033           48                     mov dptr,#tab
+
+0080 EB               49                     mov a,r3
+
+0081 93               50                     movc a,@a+dptr
+
+0082 908000           51                     mov dptr,#8000h
+
+0085 F0               52                     movx @dptr,a
+
+0086 909000           53                     mov dptr,#9000h
+
+0089 740D             54                     mov a,#0dh
+
+008B F0               55                     movx @dptr,a
+
+008C 1193             56                     acall delay
+
+A51 MACRO ASSEMBLER  5_2                                                                  12/17/2017 12:10:16 PAGE     2
+
+008E 740F             57                     mov a,#0fh
+
+0090 F0               58                     movx @dptr,a
+
+                      59                     
+
+0091 0147             60                     ajmp loop
+
+                      61                     
+
+0093 7F00             62     delay:  mov r7,#0
+
+0095 DFFE             63                     djnz r7,$
+
+0097 22               64                     ret             
+
+                      65     
+
+0098 90B000           66     zd0:    mov dptr,#0b000h
+
+009B E0               67                     movx a,@dptr
+
+009C F8               68                     mov r0,a
+
+009D 32               69                     reti 
+
+                      70                     
+
+                      71                     end
+
+                                             
+
+A51 MACRO ASSEMBLER  5_2                                                                  12/17/2017 12:10:16 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DELAY. . . . . . .  C ADDR   0093H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+LOOP . . . . . . .  C ADDR   0047H   A   
+MAIN . . . . . . .  C ADDR   003DH   A   
+TAB. . . . . . . .  C ADDR   0033H   A   
+TCON . . . . . . .  D ADDR   0088H   A   
+ZD0. . . . . . . .  C ADDR   0098H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

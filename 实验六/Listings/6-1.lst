@@ -1,0 +1,64 @@
+A51 MACRO ASSEMBLER  6_1                                                                  12/28/2017 13:13:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\6-1.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE 6-1.asm SET(SMALL) DEBUG PRINT(.\Listings\6-1.lst) OBJECT(.\Objects\6-1
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org     0000h
+
+0000 0133              2                     ajmp    main
+
+0033                   3                     org             0033h
+
+                       4                             
+
+0033 7482              5     main:   mov a,#82h
+
+0035 90C003            6                     mov dptr,#0c003h
+
+0038 F0                7                     movx @dptr,a
+
+                       8                     
+
+0039 90C001            9     loop:   mov dptr,#0c001h
+
+003C E0               10                     movx a,@dptr
+
+003D 90C000           11                     mov dptr,#0c000h
+
+0040 F0               12                     movx @dptr,a
+
+0041 90C002           13                     mov dptr,#0c002h
+
+0044 F0               14                     movx @dptr,a
+
+0045 0139             15                     ajmp loop
+
+                      16                     
+
+                      17                     end
+
+                                             
+
+                                             
+
+A51 MACRO ASSEMBLER  6_1                                                                  12/28/2017 13:13:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0039H   A   
+MAIN . . . . . . .  C ADDR   0033H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

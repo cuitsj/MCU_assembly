@@ -1,0 +1,84 @@
+A51 MACRO ASSEMBLER  5_4                                                                  12/17/2017 13:46:09 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\5-4.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE 5-4.asm SET(SMALL) DEBUG PRINT(.\Listings\5-4.lst) OBJECT(.\Objects\5-4
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org     0000h
+
+0000 0133              2                     ajmp    main
+
+0033                   3                     org             0033h
+
+                       4                             
+
+0033 7833              5     main:   mov r0,#51
+
+0035 90A000            6     loop1:  mov dptr,#0a000h
+
+0038 E8                7                     mov a,r0
+
+0039 F0                8                     movx @dptr,a
+
+003A 08                9                     inc r0
+
+003B B866F7           10                     cjne r0,#102,loop1
+
+003E 90A000           11                     mov dptr,#0a000h
+
+0041 E8               12                     mov a,r0
+
+0042 F0               13                     movx @dptr,a
+
+0043 1150             14                     acall delay
+
+0045 90A000           15     loop2:  mov dptr,#0a000h
+
+0048 E8               16                     mov a,r0
+
+0049 F0               17                     movx @dptr,a
+
+004A 18               18                     dec r0
+
+004B B833F7           19                     cjne r0,#51,loop2
+
+004E 0135             20                     ajmp loop1
+
+                      21                     
+
+0050 7F00             22     delay:  mov r7,#0
+
+0052 DFFE             23                     djnz r7,$
+
+0054 22               24                     ret             
+
+                      25     
+
+                      26                     end
+
+                                             
+
+                                             
+
+A51 MACRO ASSEMBLER  5_4                                                                  12/17/2017 13:46:09 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0050H   A   
+LOOP1. . . . . . .  C ADDR   0035H   A   
+LOOP2. . . . . . .  C ADDR   0045H   A   
+MAIN . . . . . . .  C ADDR   0033H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

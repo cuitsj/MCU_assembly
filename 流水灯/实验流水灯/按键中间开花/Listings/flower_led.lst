@@ -1,0 +1,209 @@
+A51 MACRO ASSEMBLER  FLOWER_LED                                                           11/12/2017 16:14:09 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+NO OBJECT MODULE REQUESTED
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE flower_led.asm SET(SMALL) DEBUG PRINT(.\Listings\flower_led.lst) OBJECT
+                      (.\Objects\flower_led.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org     0000h
+
+0000 803F              2                     sjmp    main
+
+0033                   3                     org     0033h
+
+                       4     
+
+0033 18244281          5     tab: db 18h, 24h,42h, 81h
+
+                       6             
+
+0037 3F065B4F          7     tab:    db 3fh,06h,5bh,4fh,66h,6dh
+
+003B 666D                    
+*** _________________________^
+*** ERROR #A8 IN 7 (flower_led.asm, LINE 7): ATTEMPT TO DEFINE AN ALREADY DEFINED LABEL
+003D 7D077F6F          8                     db 7dh,07h,7fh,6fh
+
+                       9     
+
+0041 753002           10     main:   mov 30h,#2
+
+0044 753100           11                     mov 31h,#0
+
+0047 753201           12                     mov 32h,#1
+
+004A 753305           13                     mov 33h,#5
+
+004D 753400           14                     mov 34h,#0
+
+0050 753507           15                     mov 35h,#7
+
+0053 753602           16                     mov 36h,#2
+
+0056 753700           17                     mov 37h,#0
+
+0059 900033           18                     mov dptr,#tab
+
+                      19                     
+
+005C 7830             20     start:  mov r0,#30h
+
+005E 79FE             21                     mov r1,#0feh    ;位选
+
+0060 7F08             22                     mov r7,#8               ;显示首治皇
+
+                      23                     
+
+0062 E6               24     loop:   mov a,@r0
+
+0063 93               25                     movc a,@a+dptr
+
+0064 75A0FF           26                     mov p2,#0ffh    ;消影
+
+                      27                     
+
+0067 F580             28                     mov p0,a                ;段选
+
+0069 89A0             29                     mov p2,r1               ;位选
+
+006B 08               30                     inc r0
+
+006C E9               31                     mov a,r1
+
+006D 23               32                     rl a
+
+006E F9               33                     mov r1,a
+
+006F DFF1             34                     djnz r7,loop
+
+0071 80E9             35                     sjmp start
+
+                      36                     
+
+                      37     
+
+                      38                     
+
+                      39                     
+
+                      40                     
+
+0073 900033           41     main:   mov dptr, #tab
+
+*** _________________________^
+*** ERROR #A8 IN 41 (flower_led.asm, LINE 41): ATTEMPT TO DEFINE AN ALREADY DEFINED LABEL
+0076 7A00             42                     mov r2,#00000000b
+
+0078 7803             43                     mov r0,#3
+
+007A 7900             44                     mov r1,#0
+
+007C E8               45                     mov a,r0
+
+007D 93               46                     movc a,@a+dptr
+
+007E F590             47                     mov p1,a
+
+0080 11A6             48     loop1:  acall delay
+
+                      49     
+
+0082 20B203           50                     jb p3.2, bfz
+
+0085 EA               51                     mov a, r2               
+
+0086 F4               52                     cpl a
+
+A51 MACRO ASSEMBLER  FLOWER_LED                                                           11/12/2017 16:14:09 PAGE     2
+
+0087 FA               53                     mov r2,a
+
+                      54                     
+
+0088 BA0002           55     bfz:    cjne r2,#00000000b,kai
+
+008B 800B             56                     sjmp bi
+
+008D E8               57     kai:    mov a,r0
+
+008E 14               58                     dec a
+
+008F F8               59                     mov r0,a
+
+0090 B8FFCF           60                     cjne r0,#-1,loop
+
+0093 7803             61                     mov r0,#3
+
+0095 E8               62                     mov a,r0
+
+0096 80CA             63                     sjmp loop
+
+0098 E9               64     bi:             mov a,r1
+
+0099 04               65                     inc a
+
+009A F9               66                     mov r1,a
+
+009B B904C4           67                     cjne r1,#4,loop
+
+009E 7900             68                     mov r1,#0
+
+00A0 E9               69                     mov a,r1
+
+                      70                     
+
+                      71                     
+
+00A1 93               72     loop:   movc a,@a+dptr
+
+*** _________________________^
+*** ERROR #A8 IN 72 (flower_led.asm, LINE 72): ATTEMPT TO DEFINE AN ALREADY DEFINED LABEL
+00A2 F590             73                     mov p1,a
+
+00A4 80DA             74                     sjmp loop1
+
+                      75                     
+
+00A6 7FC8             76     delay:  mov r7,#200
+
+00A8 7EC8             77     del:    mov r6,#200
+
+00AA DEFE             78                     djnz r6,$
+
+00AC DFFA             79                     djnz r7,del
+
+00AE 22               80                     ret
+
+                      81                     end
+
+A51 MACRO ASSEMBLER  FLOWER_LED                                                           11/12/2017 16:14:09 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BFZ. . . . . . . .  C ADDR   0088H   A   
+BI . . . . . . . .  C ADDR   0098H   A   
+DEL. . . . . . . .  C ADDR   00A8H   A   
+DELAY. . . . . . .  C ADDR   00A6H   A   
+KAI. . . . . . . .  C ADDR   008DH   A   
+LOOP . . . . . . .  C ADDR   0062H   A   
+LOOP1. . . . . . .  C ADDR   0080H   A   
+MAIN . . . . . . .  C ADDR   0041H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+START. . . . . . .  C ADDR   005CH   A   
+TAB. . . . . . . .  C ADDR   0033H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 3 ERROR(S)

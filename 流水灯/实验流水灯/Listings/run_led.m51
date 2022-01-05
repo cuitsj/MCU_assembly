@@ -1,0 +1,53 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/12/2017  14:17:41  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\run_led.obj TO .\Objects\run_led PRINT (.\Listings\run_led.m51) RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\run_led.obj (RUN_LED)
+
+
+LINK MAP OF MODULE:  .\Objects\run_led (RUN_LED)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0049H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\run_led (RUN_LED)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        RUN_LED
+  C:0042H         SYMBOL        DEL
+  C:0040H         SYMBOL        DELAY
+  C:0039H         SYMBOL        LOOP
+  C:0033H         SYMBOL        MAIN
+  D:0090H         SYMBOL        P1
+  C:0000H         LINE#         2
+  C:0033H         LINE#         5
+  C:0035H         LINE#         6
+  C:0037H         LINE#         7
+  C:0039H         LINE#         8
+  C:003AH         LINE#         9
+  C:003CH         LINE#         10
+  C:003EH         LINE#         11
+  C:0040H         LINE#         13
+  C:0042H         LINE#         14
+  C:0044H         LINE#         15
+  C:0046H         LINE#         16
+  C:0048H         LINE#         17
+  -------         ENDMOD        RUN_LED
+
+Program Size: data=8.0 xdata=0 code=73
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

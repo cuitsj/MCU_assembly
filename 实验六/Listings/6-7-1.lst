@@ -1,0 +1,84 @@
+A51 MACRO ASSEMBLER  6_7_1                                                                12/28/2017 13:13:03 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\6-7-1.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE 6-7-1.asm SET(SMALL) DEBUG PRINT(.\Listings\6-7-1.lst) OBJECT(.\Objects
+                      \6-7-1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0000h
+
+0000 0133              2                     ajmp main
+
+0033                   3                     org 0033h
+
+                       4                     
+
+0033 759850            5     main:   mov scon,#50h
+
+0036 758920            6                     mov tmod,#20h
+
+0039 758BFD            7                     mov tl1,#-3
+
+003C 758DFD            8                     mov th1,#-3
+
+003F D28E              9                     setb tr1
+
+                      10                     
+
+0041 7830             11                     mov r0,#30h
+
+0043 7601             12     loop:   mov @r0,#1
+
+0045 08               13                     inc r0
+
+0046 B83FFA           14                     cjne r0,#3fh,loop
+
+                      15                     
+
+0049 7830             16                     mov r0,#30h
+
+004B E6               17     loop1:  mov a,@r0
+
+004C F599             18                     mov sbuf,a
+
+004E 3099FD           19                     jnb ti,$
+
+0051 C299             20                     clr ti
+
+0053 08               21                     inc r0
+
+0054 B83FF4           22                     cjne r0,#3fh,loop1
+
+0057 80FE             23                     sjmp $
+
+                      24                     
+
+                      25                     end
+
+A51 MACRO ASSEMBLER  6_7_1                                                                12/28/2017 13:13:03 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0043H   A   
+LOOP1. . . . . . .  C ADDR   004BH   A   
+MAIN . . . . . . .  C ADDR   0033H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

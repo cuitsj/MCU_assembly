@@ -1,0 +1,110 @@
+A51 MACRO ASSEMBLER  4_1                                                                  12/03/2017 09:48:51 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\4-1.obj
+ASSEMBLER INVOKED BY: D:\Keil_v5\C51\BIN\A51.EXE 4-1.asm SET(SMALL) DEBUG PRINT(.\Listings\4-1.lst) OBJECT(.\Objects\4-1
+                      .obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org             0000h
+
+0000 0133              2                     ajmp    main
+
+0033                   3                     org     0033h
+
+                       4                             
+
+0033 758920            5     main:   mov tmod,#20h
+
+0036 759850            6                     mov scon,#50h   
+
+0039 758BFD            7                     mov tl1,#-3
+
+003C 758DFD            8                     mov th1,#-3
+
+003F D28E              9                     setb tr1
+
+                      10                     
+
+0041 759948           11                     mov     sbuf,#'H'
+
+0044 3099FD           12                     jnb ti,$
+
+0047 C299             13                     clr ti
+
+0049 759965           14                     mov     sbuf,#'e'
+
+004C 3099FD           15                     jnb ti,$
+
+004F C299             16                     clr ti
+
+0051 75996C           17                     mov     sbuf,#'l'
+
+0054 3099FD           18                     jnb ti,$
+
+0057 C299             19                     clr ti
+
+0059 75996C           20                     mov     sbuf,#'l'
+
+005C 3099FD           21                     jnb ti,$
+
+005F C299             22                     clr ti
+
+0061 75996F           23                     mov     sbuf,#'o'
+
+0064 3099FD           24                     jnb ti,$
+
+0067 C299             25                     clr ti
+
+                      26                     
+
+0069 3098FD           27     loop:   jnb ri,$
+
+006C C298             28                     clr ri
+
+006E E599             29                     mov a,sbuf
+
+0070 9401             30                     subb a,#01h
+
+0072 F599             31                     mov sbuf,a
+
+0074 3099FD           32                     jnb ti,$
+
+0077 C299             33                     clr ti
+
+0079 0169             34                     ajmp loop
+
+                      35                     
+
+                      36                     end
+
+                                             
+
+                                             
+
+A51 MACRO ASSEMBLER  4_1                                                                  12/03/2017 09:48:51 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+LOOP . . . . . . .  C ADDR   0069H   A   
+MAIN . . . . . . .  C ADDR   0033H   A   
+RI . . . . . . . .  B ADDR   0098H.0 A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

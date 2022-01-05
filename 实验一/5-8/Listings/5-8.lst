@@ -1,0 +1,230 @@
+A51 MACRO ASSEMBLER  5_8                                                                  10/26/2017 22:08:52 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\5-8.obj
+ASSEMBLER INVOKED BY: D:\Keil\C51\BIN\A51.EXE 5-8.asm SET(SMALL) DEBUG PRINT(.\Listings\5-8.lst) OBJECT(.\Objects\5-8.ob
+                      j) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0000h
+
+0000 803A              2                     sjmp start
+
+0033                   3                     org 0033h
+
+0033 7D32              4     delay:  mov r5,#50
+
+0035 7C64              5     del:    mov r4,#100
+
+0037 DCFE              6                     djnz r4,$
+
+0039 DDFA              7                     djnz r5,del
+
+003B 22                8                     ret
+
+                       9                     
+
+003C 75B0FC           10     start:  mov p3,#11111100b
+
+003F E5B0             11                     mov a,p3
+
+0041 B4FC02           12                     cjne a,#11111100b,loop1
+
+0044 80F6             13                     sjmp start
+
+0046 120033           14     loop1:  lcall delay
+
+0049 E5B0             15                     mov a,p3
+
+004B B4FC02           16                     cjne a,#11111100b,loop2
+
+004E 80EC             17                     sjmp start
+
+0050 64FC             18     loop2:  xrl a,#11111100b
+
+0052 F8               19                     mov r0,a
+
+0053 75B003           20                     mov p3,#00000011b
+
+0056 E5B0             21                     mov a,p3
+
+0058 6403             22                     xrl a,#00000011b
+
+005A 48               23                     orl a,r0
+
+005B F8               24                     mov r0,a                ;µÃµ½¼üÖµ
+
+005C 75B0FC           25     loop3:  mov p3,#11111100b
+
+005F E5B0             26                     mov a,p3
+
+0061 B4FCF8           27                     cjne a,#11111100b,loop3
+
+0064 120033           28                     lcall delay
+
+0067 E5B0             29                     mov a,p3
+
+0069 B4FCF0           30                     cjne a,#11111100b,loop3
+
+006C E8               31                     mov a,r0
+
+006D B40502           32                     cjne a,#05h,next1
+
+0070 802D             33                     sjmp n0
+
+0072 B40902           34     next1:  cjne a,#09h,next2
+
+0075 802F             35                     sjmp n1
+
+0077 B41102           36     next2:  cjne a,#11h,next3
+
+007A 8031             37                     sjmp n2
+
+007C B42102           38     next3:  cjne a,#21h,next4
+
+007F 8033             39                     sjmp n3
+
+0081 B44102           40     next4:  cjne a,#41h,next5
+
+0084 8035             41                     sjmp n4
+
+0086 B40602           42     next5:  cjne a,#06h,next6
+
+0089 8037             43                     sjmp n5
+
+008B B40A02           44     next6:  cjne a,#0ah,next7
+
+008E 8039             45                     sjmp n6
+
+0090 B41202           46     next7:  cjne a,#12h,next8
+
+0093 803B             47                     sjmp n7
+
+0095 B42202           48     next8:  cjne a,#22h,next9
+
+0098 803D             49                     sjmp n8
+
+009A B4429F           50     next9:  cjne a,#42h,start
+
+009D 803F             51                     sjmp n9
+
+009F 75803F           52     n0:             mov p0,#3fh
+
+00A2 C2A0             53                     clr p2.0
+
+00A4 8096             54                     sjmp start
+
+00A6 758006           55     n1:             mov p0,#06h
+
+00A9 C2A0             56                     clr p2.0
+
+00AB 808F             57                     sjmp start
+
+A51 MACRO ASSEMBLER  5_8                                                                  10/26/2017 22:08:52 PAGE     2
+
+00AD 75805B           58     n2:             mov p0,#5bh
+
+00B0 C2A0             59                     clr p2.0
+
+00B2 8088             60                     sjmp start
+
+00B4 75804F           61     n3:             mov p0,#4fh
+
+00B7 C2A0             62                     clr p2.0
+
+00B9 8081             63                     sjmp start
+
+00BB 758066           64     n4:             mov p0,#66h
+
+00BE C2A0             65                     clr p2.0
+
+00C0 013C             66                     ajmp start
+
+00C2 75806D           67     n5:             mov p0,#6dh
+
+00C5 C2A0             68                     clr p2.0
+
+00C7 013C             69                     ajmp start
+
+00C9 75807D           70     n6:             mov p0,#7dh
+
+00CC C2A0             71                     clr p2.0
+
+00CE 013C             72                     ajmp start
+
+00D0 758007           73     n7:             mov p0,#07h
+
+00D3 C2A0             74                     clr p2.0
+
+00D5 013C             75                     ajmp start
+
+00D7 75807F           76     n8:             mov p0,#7fh
+
+00DA C2A0             77                     clr p2.0
+
+00DC 013C             78                     ajmp start
+
+00DE 75806F           79     n9:             mov p0,#6fh
+
+00E1 C2A0             80                     clr p2.0
+
+00E3 013C             81                     ajmp start
+
+                      82                     end
+
+                                             
+
+                             
+
+                                             
+
+                             
+
+                                             
+
+                                             
+
+A51 MACRO ASSEMBLER  5_8                                                                  10/26/2017 22:08:52 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DEL. . . . . . . .  C ADDR   0035H   A   
+DELAY. . . . . . .  C ADDR   0033H   A   
+LOOP1. . . . . . .  C ADDR   0046H   A   
+LOOP2. . . . . . .  C ADDR   0050H   A   
+LOOP3. . . . . . .  C ADDR   005CH   A   
+N0 . . . . . . . .  C ADDR   009FH   A   
+N1 . . . . . . . .  C ADDR   00A6H   A   
+N2 . . . . . . . .  C ADDR   00ADH   A   
+N3 . . . . . . . .  C ADDR   00B4H   A   
+N4 . . . . . . . .  C ADDR   00BBH   A   
+N5 . . . . . . . .  C ADDR   00C2H   A   
+N6 . . . . . . . .  C ADDR   00C9H   A   
+N7 . . . . . . . .  C ADDR   00D0H   A   
+N8 . . . . . . . .  C ADDR   00D7H   A   
+N9 . . . . . . . .  C ADDR   00DEH   A   
+NEXT1. . . . . . .  C ADDR   0072H   A   
+NEXT2. . . . . . .  C ADDR   0077H   A   
+NEXT3. . . . . . .  C ADDR   007CH   A   
+NEXT4. . . . . . .  C ADDR   0081H   A   
+NEXT5. . . . . . .  C ADDR   0086H   A   
+NEXT6. . . . . . .  C ADDR   008BH   A   
+NEXT7. . . . . . .  C ADDR   0090H   A   
+NEXT8. . . . . . .  C ADDR   0095H   A   
+NEXT9. . . . . . .  C ADDR   009AH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+START. . . . . . .  C ADDR   003CH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
